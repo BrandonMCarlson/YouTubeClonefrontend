@@ -6,10 +6,10 @@ function App() {
   const [comments, setComments] = useState([]);
   const [counter, setCounter] = useState(0);
   const getAllComments = async () => {
-    await axios.get("http://localhost:5050/api/comments").then((response) => {
-      console.log(response.data);
-      setComments(response.data);
-    });
+    // await axios.get("http://localhost:5050/api/comments").then((response) => {
+    //   console.log(response.data);
+    //   setComments(response.data);
+    // });
   };
 
   useEffect(() => {

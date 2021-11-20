@@ -15,7 +15,12 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
+<<<<<<< HEAD:package.json
     "start": "react-scripts --openssl-legacy-provider start",
+=======
+    "start": "react-scripts start",
+    "startrb": "react-scripts --openssl-legacy-provider start",
+>>>>>>> a941b582149ffcc3ba97dab902e41a8cfd42b44b:youtube-front/package.json
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

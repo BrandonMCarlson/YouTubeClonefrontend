@@ -1,24 +1,29 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import NavBar from "./component/NavBar/NavBar";
+
 
 function App() {
   const [comments, setComments] = useState([]);
   const [counter, setCounter] = useState(0);
   const getAllComments = async () => {
-    // await axios.get("http://localhost:5050/api/comments").then((response) => {
-    //   console.log(response.data);
-    //   setComments(response.data);
-    // });
+    await axios.get("http://localhost:5050/api/comments").then((response) => {
+      console.log(response.data);
+      setComments(response.data);
+    });
   };
 
   useEffect(() => {
     getAllComments();
+    
   }, [counter]);
   return (
     <div>
+      <NavBar />
       <p> {counter}</p>
-      <button onClick={() => setCounter(counter + 1)}> Click me</button>
+      {/* <button onClick={() => setCounter(counter + 1)}> Click me</button> */}
+     
     </div>
   );
 }

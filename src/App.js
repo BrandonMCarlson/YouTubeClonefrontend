@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import DisplayComments from "./DisplayComments/DisplayComments";
+
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -19,9 +21,12 @@ function App() {
     <div>
       <p> {counter}</p>
       <button onClick={() => setCounter(counter + 1)}> Click me</button>
+      <DisplayComments/>
     </div>
+    
   );
 }
+
 
 
 

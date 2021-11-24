@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import CommentForm from "./components/commentForm";
-
-
+import NavBar from "./components/NavBar"
+import VideoPlayer from './components/VideoPlayer';
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -24,7 +24,9 @@ function App() {
   }
   return (
     <div>
+      <VideoPlayer/>
       <button onClick={() => getDataButton()}>CLICKME</button>
+      <NavBar/>
       {comments.map((comment, i) => <li key={i}> {comment.text} videoID: {comment.videoID} </li>)}
       <CommentForm/>
     </div>

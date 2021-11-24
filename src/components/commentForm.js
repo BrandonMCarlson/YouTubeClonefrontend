@@ -1,27 +1,40 @@
-import React from 'react';
-import useForm from "./useForm";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import useForm from "../useForm";
 
-const CommentForm = () => {
-    const { values, handleChange, handleSubmit } = useForm(addwords);
+function CommentForm() {
+    const [comments, setComments] = useState([]);
+    const { value, handleChange, handleSubmit } = useForm(postForm);
+    
 
-    function addwords(){
-        alert(`Your comment reads as ${values.comment}`);
-    }
+    async function postForm() {
+        await axios
+        .post('http://localhost:5050/api/comments', {
+            videoID: "FOYnwJG8ucI",
+            text: value
+        })
+        .then((res) => {
+            setComments(res.data);
+        });
+    };
 
+
+    useEffect(() => {
+    }, []);
     return (
         <div>
         <form onSubmit={handleSubmit}>
             <label>
                 Comment:
                 <input
-                    type="comment"
+                    type="text"
                     name="comment"
                     onChange={handleChange}
-                    value={values.comment}
+                    value={value}
                     required={true}
                 />
             </label>
-            <button type="submit"> Submit Comment</button>
+            <input type="submit" value="submit form"/>
         </form>
         </div>
     );

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
+import CommentForm from "./components/commentForm";
 
 
 function App() {
@@ -22,14 +23,12 @@ function App() {
   }
   return (
     <div>
-      <p> {counter}</p>
-      <button onClick={() => setCounter(counter + 1)}> Click me</button>      
+      <button onClick={() => getDataButton()}>CLICKME</button>
+      
+      {comments.map((comment, i) => <li key={i}> {comment.text} videoID: {comment.videoID} </li>)}
+      <CommentForm/>
     </div>
-    
   );
 }
-
-
-
 
 export default App;

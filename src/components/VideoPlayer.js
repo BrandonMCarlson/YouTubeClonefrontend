@@ -21,8 +21,19 @@ function Vid() {
   return (
     <div>
       {videos.map((vid, i) => (
-        <li key={i}>{vid.snippet.title}</li>
+        <>
+          <img
+            alt={vid.snippet.title}
+            src={vid.snippet.thumbnails.medium.url}
+            width={vid.snippet.thumbnails.medium}
+          />
+          <p style={{ color: "white" }} key={i}>
+            {vid.snippet.title}{" "}
+            <p style={{ color: "white" }}> {vid.snippet.description}</p>
+          </p>
+        </>
       ))}
+      ;
     </div>
   );
 }

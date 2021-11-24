@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 import CommentForm from "./components/commentForm";
-import NavBar from "./components/NavBar"
-import VideoPlayer from './components/VideoPlayer';
+import NavBar from "./components/NavBar";
+import VideoPlayer from "./components/VideoPlayer";
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -17,18 +17,34 @@ function App() {
 
   useEffect(() => {
     getAllComments();
-  }, [])
+  }, []);
 
-  const getDataButton = () => {
-    console.log(comments)
-  }
   return (
     <div>
-      <VideoPlayer/>
-      <button onClick={() => getDataButton()}>CLICKME</button>
-      <NavBar/>
-      {comments.map((comment, i) => <li key={i}> {comment.text} videoID: {comment.videoID} </li>)}
-      <CommentForm/>
+      <NavBar />
+      <VideoPlayer />
+      {comments.map((comment, i) => (
+        <li key={i}>
+          Comment: {comment.text}<br/>
+          videoID: {comment.videoID}<br/>
+          CommentID:{comment._id} <br/>
+          likes: {comment.likes} <br/>
+          dislikes: {comment.dislikes}<br/>
+          {comment.replies
+          .filter(reply => {
+          if (reply) {
+          return reply
+        }})
+        .map((replies, i) => {
+          return (
+            <li key={i} component='div'>
+              .....replies: {replies.text} 
+            </li>
+          )
+        })}
+        </li>
+      ))}
+      <CommentForm />
     </div>
   );
 }

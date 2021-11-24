@@ -4,6 +4,7 @@ import "./App.css";
 import CommentForm from "./components/commentForm";
 import NavBar from "./components/NavBar"
 import VideoPlayer from './components/VideoPlayer';
+import ReplyForm from "./components/replyForm";
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -29,6 +30,7 @@ function App() {
       <NavBar/>
       {comments.map((comment, i) => <li key={i}> {comment.text} videoID: {comment.videoID} </li>)}
       <CommentForm/>
+      <ReplyForm/>
     </div>
   );
 }

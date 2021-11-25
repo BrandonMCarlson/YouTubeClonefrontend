@@ -21,6 +21,8 @@ function CommentForm() {
 
     useEffect(() => {
     }, []);
+    
+    
     return (
         <div>
         <form onSubmit={handleSubmit}>

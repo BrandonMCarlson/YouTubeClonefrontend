@@ -4,6 +4,7 @@ import "./App.css";
 import CommentForm from "./components/commentForm";
 import NavBar from "./components/NavBar";
 import VideoPlayer from "./components/VideoPlayer";
+import LikeButton from "./components/LikeButton";
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -45,6 +46,7 @@ function App() {
         </li>
       ))}
       <CommentForm />
+      <LikeButton/>
     </div>
   );
 }

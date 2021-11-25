@@ -5,6 +5,7 @@ import CommentForm from "./components/commentForm";
 import NavBar from "./components/NavBar";
 import VideoPlayer from "./components/VideoPlayer";
 import LikeButton from "./components/LikeButton";
+import CommentMapper from "./components/commentMapper";
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -24,29 +25,9 @@ function App() {
     <div>
       <NavBar />
       <VideoPlayer />
-      {comments.map((comment, i) => (
-        <li key={i}>
-          Comment: {comment.text}<br/>
-          videoID: {comment.videoID}<br/>
-          CommentID:{comment._id} <br/>
-          likes: {comment.likes} <br/>
-          dislikes: {comment.dislikes}<br/>
-          {comment.replies
-          .filter(reply => {
-          if (reply) {
-          return reply
-        }})
-        .map((replies, i) => {
-          return (
-            <li key={i} component='div'>
-              .....replies: {replies.text} 
-            </li>
-          )
-        })}
-        </li>
-      ))}
       <CommentForm />
-      <LikeButton/>
+      <CommentMapper comments={comments} />
+      <LikeButton />
     </div>
   );
 }

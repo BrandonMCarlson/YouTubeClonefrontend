@@ -6,6 +6,7 @@ import NavBar from "./components/NavBar";
 import VideoPlayer from "./components/VideoPlayer";
 import LikeButton from "./components/LikeButton";
 import CommentMapper from "./components/commentMapper";
+import EmbeddedVideo from "./components/EmbeddedVideoPlayer/EmbeddedVideoPlayer";
 
 function App() {
   const [comments, setComments] = useState([]);
@@ -24,6 +25,7 @@ function App() {
   return (
     <div>
       <NavBar />
+      <EmbeddedVideo   />
       <VideoPlayer />
       <CommentForm />
       <CommentMapper comments={comments} />
